@@ -1,0 +1,237 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API de manipulação de produtos",
+    "description": "Essa API tem como objetivo manipular os produtos",
+    "termsOfService": "http://localhost:9999/api-docs",
+    "contact": {
+      "email": "pedromarquesnoot@outlook.com"
+    },
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/listproducts": {
+      "get": {
+        "tags": ["produtos"],
+        "summary": "receber todos os produtos",
+        "description": "todos os produtos cadastrados estão nessa lista",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "Operação bem-sucedida",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "listproducts": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ProductItem"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deleteproduct": {
+      "post": {
+        "tags": ["produtos"],
+        "summary": "deletar um produto pelo ID",
+        "description": "Deleta um produto pelo ID fornecido no corpo da requisição",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "ID do produto a ser deletado",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Produto deletado com sucesso"
+          },
+          "400": {
+            "description": "ID do produto não encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/createproduct": {
+      "post": {
+        "tags": ["produtos"],
+        "summary": "criar um novo produto",
+        "description": "Cria um novo produto com as informações fornecidas no corpo da requisição",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Informações do novo produto",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "nome": {
+                  "type": "string"
+                },
+                "descricao": {
+                  "type": "string"
+                },
+                "preco": {
+                  "type": "number"
+                },
+                "codigoProduto": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Produto criado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "product": {
+                      "$ref": "#/components/schemas/ProductItem"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro ao criar o produto",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/editproduct": {
+      "post": {
+        "tags": ["produtos"],
+        "summary": "editar um produto pelo ID",
+        "description": "Edita um produto pelo ID fornecido no corpo da requisição",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Informações do produto a serem editadas",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "nome": {
+                  "type": "string"
+                },
+                "descricao": {
+                  "type": "string"
+                },
+                "preco": {
+                  "type": "number"
+                },
+                "codigoProduto": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Produto editado com sucesso!"
+          },
+          "400": {
+            "description": "Id do produto inválido!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ProductItem": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string"
+          },
+          "nome": {
+            "type": "string"
+          },
+          "codigoProduto": {
+            "type": "string"
+          },
+          "descricao": {
+            "type": "string"
+          },
+          "preco": {
+            "type": "number"
+          },
+          "__v": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}
