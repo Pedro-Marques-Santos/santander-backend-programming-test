@@ -1,46 +1,46 @@
 # Backend - Nunes Sport
-Este é o projeto de backend desenvolvido para um desafio de programação relacionado a uma vaga. O foco principal foi criar uma aplicação utilizando práticas de Clean Code.
+This is the backend project developed for a programming challenge related to a job position. The main focus was to create an application using Clean Code practices.
 
 
-- Resumo:
+- Summary:
 
-O projeto foi desenvolvido em Node.js e teve como base a criação de um CRUD.
-
-
-- Tecnologias Utilizadas:
-
-Node.js: Utilizado como base para o desenvolvimento do servidor.
-
-MongoDB: Banco de dados escolhido para armazenamento, com manipulação facilitada através da biblioteca Mongoose.
-
-ESLint e Prettier: Utilizados para manter um código limpo e padronizado.
-
-Tsyringe: Biblioteca utilizada para injeção de dependências, contribuindo para uma estrutura mais organizada e limpa.
+The project was developed in Node.js and was based on creating a CRUD application.
 
 
-- Funcionalidades:
+- Technologies Used:
 
-Criação, leitura, atualização e remoção de dados no banco (CRUD).
+Node.js: Used as the base for server development.
 
-Possibilidade opcional de criação de códigos de produto com 12 caracteres numéricos.
+MongoDB: Chosen as the database for storage, with easy manipulation through the Mongoose library.
 
-Implementação do Swagger para facilitar a utilização das rotas.
+ESLint and Prettier: Used to maintain clean and standardized code.
 
-Utilização de outras bibliotecas que contribuem para a funcionalidade do projeto.
-
-
-# Como inicar o projeto
+Tsyringe: Library used for dependency injection, contributing to a more organized and clean structure.
 
 
-- Passo 1: Instalação das Dependências
-Abra o terminal na pasta do projeto e execute os seguintes comandos:
+- Features:
+
+Creation, reading, updating, and deletion of data in the database (CRUD).
+
+Optional ability to create product codes with 12 numeric characters.
+
+Implementation of Swagger to facilitate the use of routes.
+
+Utilization of other libraries that contribute to the project's functionality.
+
+
+# How to Start the Project
+
+
+- Step 1: Install Dependencies
+Open the terminal in the project folder and run the following commands:
 
 yarn install
 
-- Passo 2: Rodando o Projeto localmente
+- Step 2: Run the Project Locally
 
 yarn dev
 
-- Passo 3: Preparando para Produção
+- Step 3: Prepare for Production
 
 yarn build
